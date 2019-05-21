@@ -1,0 +1,5 @@
+services:
+  access_check.view_all_unpublished:
+    class: Drupal\idix_preview\Access\ViewAllUnpublishedAccessCheck
+    tags:
+    - { name: access_check, applies_to: _node_preview_access }

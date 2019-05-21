@@ -1,0 +1,28 @@
+<?php
+
+
+/**
+ * Implements hook_node_access().
+ */
+function idix_preview_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account)
+{
+  if($op == 'view'){
+    if($account->hasPermission('view all unpublished content') && $node->access('edit', $account)){
+      return \Drupal\Core\Access\AccessResult::allowed();
+    }
+  }
+  return \Drupal\Core\Access\AccessResult::neutral();
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ */
+function idix_preview_paragraph_access(\Drupal\paragraphs\Entity\Paragraph $paragraph, $op, \Drupal\Core\Session\AccountInterface $account)
+{
+  if($op == 'view'){
+    if($account->hasPermission('view all unpublished content') && $account->hasPermission('view unpublished paragraphs')){
+      return \Drupal\Core\Access\AccessResult::allowed();
+    }
+  }
+  return \Drupal\Core\Access\AccessResult::neutral();
+}

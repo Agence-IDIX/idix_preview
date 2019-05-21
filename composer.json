@@ -1,0 +1,16 @@
+{
+  "name": "idix/idix_preview",
+  "description": "Module de permission pour les previews.",
+  "type": "drupal-custom-module",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Nicolas Bugeja",
+      "email": "nicolas.bugeja@idix.fr",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "drupal/core": "8.*"
+  }
+}
